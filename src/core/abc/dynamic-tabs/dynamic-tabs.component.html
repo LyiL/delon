@@ -1,0 +1,14 @@
+<nz-tabset [nzTabPosition]="tabPosition" [nzType]="tabType"
+           [(nzSelectedIndex)]="selectedIndex"
+           (nzSelectChange)="onTabsetSelectChange($event)">
+    <nz-tab *ngFor="let tab of tabs"
+            (nzSelect)="onSelect(tab)"
+            (nzClick)="onClick(tab)"
+            (nzDeselect)="onDeSelect(tab)"
+            [nzDisabled]="tab.disabled">
+        <ng-template #nzTabHeading>
+            {{tab.title}}
+        </ng-template>
+        <ng-template #tabContent></ng-template>
+    </nz-tab>
+</nz-tabset>

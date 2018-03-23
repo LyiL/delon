@@ -1,0 +1,15 @@
+<button (click)="onSearch()">查询</button>
+<simple-table #table [(url)]="url" [isAjax]="true" [reqMehtod]="'get'" [columns]="columns" [isExpand]="true" (expandChange)="onExpandChange($event)">
+    <ng-template st-row="htmlRender" let-item>
+        {{htmlStr}}
+    </ng-template>
+    <ng-template #nzTableExpand let-item let-index="index">
+        {{index}}
+        <ng-container *ngIf="expandData[index]">
+            <div>status：{{expandData[index].status}}</div>
+            <div>message：{{expandData[index].message}}</div>
+            <div>data：{{expandData[index].data}}</div>
+            <div>errors：{{expandData[index].errors}}</div>
+        </ng-container>
+    </ng-template>
+</simple-table>

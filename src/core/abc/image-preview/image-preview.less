@@ -1,0 +1,173 @@
+.image-wrap{
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom:0;
+    color:#999;
+    background-color:transparent;
+    overflow: hidden;
+    width:100%;
+    z-index: 9999;
+
+    .img-des{
+        width:253px;
+        height: 100%;
+        float:right;
+        background-color:#2b2b2b;
+        &.not-des{
+            width:50px;
+        }
+        a.close{
+            width:50px;
+            height:50px;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            &:hover{
+                &:before,&:after{
+                    background: rgba(255, 255, 255, 1);
+                }
+            }
+            &:before,&:after{
+                content: "";
+                width:30px;
+                height:2px;
+                position: absolute;
+                top:22px;
+                left:11px;
+                background: rgba(255, 255, 255, 0.5);
+                transform:rotate(-45deg);
+                -webkit-transform:rotate(-45deg);
+                -moz-transform:rotate(-45deg);
+                -o-transform:rotate(-45deg);
+                -ms-transform:rotate(-45deg);
+            }
+            &:after{
+                transform:rotate(45deg);
+                -webkit-transform:rotate(45deg);
+                -moz-transform:rotate(45deg);
+                -o-transform:rotate(45deg);
+                -ms-transform:rotate(45deg);
+            }
+        }
+
+    }
+
+    .img-pic{
+        margin-right:253px;
+        height: 100%;
+        background-color:#393939;
+        position: relative;
+        text-align: center;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        /*IE10,IE11*/
+        -ms-scroll-chaining: chained;
+        -ms-content-zooming: zoom;
+        -ms-scroll-rails: none;
+        -ms-content-zoom-limit-min: 100%;
+        -ms-content-zoom-limit-max: 500%;
+        -ms-scroll-snap-type: proximity;
+        -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            height: 0;
+            width: 0;
+        }
+        &::-webkit-scrollbar-trac {
+            -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.3);
+        }
+        &.not-des{
+            margin-right: 50px;
+        }
+        &:hover{
+            .img-nav{
+                display: block;
+            }
+            .img-tools{
+                display: block;
+            }
+        }
+        img{
+            position: relative;
+            top:50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.anticon-left,.img-nav-left{
+    left:0;
+}
+
+.anticon-right,.img-nav-right{
+    right:0;
+}
+
+.img-nav-left,.img-nav-right{
+    width:49%;
+    height:100%;
+    position: absolute;
+    top:0;
+    &:hover{
+        .img-nav{color:#fff;}
+    }
+}
+/* 图片加载失败效果 */
+.img-load-err{
+    font-size:14px;
+    color:#fff;
+    position: relative;
+    top:47%;
+    margin-left:-9%;
+    transform: translateY(-50%);
+}
+
+.img-nav{
+    position: absolute;
+    width:40px;
+    height:70px;
+    line-height: 70px;
+    text-align: center;
+    color:rgba(255,255,255,.7);
+    background-color:#1f1f1f;
+    top:50%;
+    display:none;
+    font-size:30px;
+    margin-top:-19px;
+    &.fa-angle-right{
+        right:0;
+    }
+}
+
+.dis-wrap{
+    margin-top:40px;
+    padding:10px;
+}
+
+.img-tools{
+    text-align: center;
+    height:38px;
+    width:100%;
+    position: fixed;
+    bottom:0;
+    background-color:#1f1f1f;
+    display: none;
+    a{
+        line-height:30px;
+        width:30px;
+        margin-top:4px;
+        user-select:none;
+        &:hover{
+            color:#fff;
+        }
+    }
+}
+.anticon-left-reload{
+    &:before{
+        content: "\E616";
+        transform: rotateY(180deg);
+    }
+}

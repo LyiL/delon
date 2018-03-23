@@ -1,0 +1,16 @@
+<div class="file" [ngClass]="fileClass">
+    <div class="file-wrap">
+                <span class="file-input" (click.stop)="_onClick()">
+                    <input #fileUploader type="file"/>
+                    <input type="hidden" [name]="name" [id]="name" [(ngModel)]="value"/>
+                    <img [ngClass]="{edit: _isEithFile}" *ngIf="value && _previewValue" [attr.src]="_previewValue" (click.stop)="onOpenImg()"/>
+                    <span *ngIf="fileClass">{{placeholder}}</span>
+                </span>
+        <span class="file-fn-wrap">
+                    <i class="fa fa-edit" (click.stop)="onEdit()"></i>
+                    <i class="fa fa-trash-o" (click.stop)="onDelete()"></i>
+                </span>
+        <span class="clear"></span>
+    </div>
+    <label class="file-placeholder" *ngIf="placeholder && !fileClass">{{placeholder}}<i *ngIf="required">*</i></label>
+</div>

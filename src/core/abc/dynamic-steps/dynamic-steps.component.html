@@ -1,0 +1,8 @@
+<nz-steps [(nzCurrent)]="dyCurrent">
+    <ng-container *ngFor="let step of steps">
+        <nz-step [nzTitle]="step.title"></nz-step>
+    </ng-container>
+</nz-steps>
+<div class="steps-content">
+    <ng-template #stepContent></ng-template>
+</div>

@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <div class="modal-title">{{title}}</div>
+</div>
+<form (ngSubmit)="onSearch()" nz-form [nzLayout]="'inline'">
+    <div nz-row [nzGutter]="24">
+        <ng-container *ngFor="let field of searchFields">
+            <div nz-col [nzSpan]="searchFieldColWidth" class="mb-md">
+                <div nz-form-item class="d-flex">
+                    <div nz-form-label><label for="{{field.field}}">{{field.label}}</label></div>
+                    <div nz-form-control class="flex-1">
+                        <nz-input [(ngModel)]="dynamicForm[field.field]" name="{{field.field}}" [nzSize]="'large'" nzPlaceHolder="{{field.placeHolder}}" nzId="{{field.field}}"></nz-input>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div class="mb-md">
+            <button nz-button [nzType]="'primary'" [nzSize]="'large'">
+                <span>{{btnLable}}</span>
+            </button>
+        </div>
+    </div>
+</form>
+<simple-table #searchTable [url]="url" [class.simple-win-table]="true" [reqMehtod]="reqMehtod" [extraParams]="params" [columns]="tableColumns"
+              [resReName]="resReName" [reqReName]="reqReName" [isAjax]="isAjax" (rowDBLClick)="_onRowDBLClick($event)"></simple-table>

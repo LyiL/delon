@@ -1,0 +1,26 @@
+<div class="image-wrap" *ngIf="showViewer" (window:resize)="onResize()">
+    <div class="img-des" [ngClass]="{'not-des': images[currentIndex] && !images[currentIndex]['describe']}">
+        <a class="close" (click)="closeImagePreview()"></a>
+        <div class="dis-wrap" [innerHTML]="images[currentIndex] ? images[currentIndex]['describe'] : ''"></div>
+    </div>
+    <div class="img-pic" [ngClass]="{'not-des': images[currentIndex] && !images[currentIndex]['describe']}">
+        <img #img (load)="onShowImageLoad(img)"
+             [src]="images[currentIndex] ? images[currentIndex]['imageUrl'] : ''"
+             (error)="onLoadImgError($event)"
+             [style.width.px]="images[currentIndex] ? images[currentIndex]['width'] : 0"
+             [style.height.px]="images[currentIndex] ? images[currentIndex]['height'] : 0"/>
+        <span class="img-load-err" *ngIf="isLoadError">{{imgLoadHint}}</span>
+        <div class="img-nav-left" *ngIf="images.length > 1">
+            <span class="img-nav anticon anticon-left" (click)="navigate(-1)"></span>
+        </div>
+        <div class="img-nav-right" *ngIf="images.length > 1">
+            <span class="img-nav anticon anticon-right" (click)="navigate(1)"></span>
+        </div>
+        <div class="img-tools">
+            <a class="anticon anticon-plus-circle-o" (click)="zoom(1,img)"></a>
+            <a class="anticon anticon-minus-circle-o" (click)="zoom(-1,img)"></a>
+            <a class="anticon anticon-left-reload" (click)="rotate(-1,img)"></a>
+            <a class="anticon anticon-reload" (click)="rotate(1,img)"></a>
+        </div>
+    </div>
+</div>

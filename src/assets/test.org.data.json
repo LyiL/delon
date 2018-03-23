@@ -1,0 +1,28 @@
+{
+    "status": 200,
+    "message": "当前条件没有查询到数据",
+    "errors": null,
+    "data":{
+        "currentPage":0,
+        "pageSize":10,
+        "pageCount":"4",
+        "totalRows":36,
+        "innerData":[{
+            "orgNo":"1",
+            "orgName":"华润"
+        },{
+            "orgNo":"2",
+            "orgName":"华润"
+        },{
+            "orgNo":"3",
+            "orgName":"华润"
+        },{
+            "orgNo":"4",
+            "orgName":"华润"
+        },{
+            "orgNo":"5",
+            "orgName":"华润"
+        }]
+    }
+
+}

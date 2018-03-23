@@ -1,0 +1,10 @@
+<div class="input-search-wrap">
+    <nz-input [(ngModel)]="nzValue" [name]="name" [nzPlaceHolder]="nzPlaceHolder" [nzSize]="nzSize" [nzDisabled]="nzDisabled"
+              [nzReadonly]="true" [nzType]="'text'" [nzId]="nzId" (nzBlur)="_emitBlur($event)" (nzFocus)="_emitFocus($event)">
+        <ng-template #addOnAfter>
+            <i class="anticon anticon-close" (click)="_onClearValueHeadler()"></i>
+            <i class="anticon anticon-search" (click)="_onSearchHeadler()"></i>
+        </ng-template>
+    </nz-input>
+    <div class="search-display-value" [class.input-disabled]="nzDisabled" title="{{displayValue}}" *ngIf="displayValue">{{displayValue}}</div>
+</div>
